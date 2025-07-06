@@ -1,12 +1,16 @@
-# Sleek Portfolio by ramxcodes
+# Shubham Kumar - Portfolio
 
-A modern, responsive portfolio website built with Next.js 15, TypeScript, Tailwind CSS, and Shadcn UI. Features a blog system, project showcase, work experience timeline, and contact form with Telegram integration.
+A modern, responsive portfolio website showcasing my work as an Information Technology Student & Full Stack Developer. Built with Next.js 15, TypeScript, Tailwind CSS, and Shadcn UI. Features a project showcase, work experience timeline, and contact form with Telegram integration.
 
 ![Portfolio Preview](/public/meta/hero.png)
 
+## About Me
+
+I'm Shubham Kumar, an Information Technology student at GTBIT (GGSIPU) and a passionate Full Stack Developer. This portfolio showcases my projects, technical expertise, and professional journey in software development.
+
 ## Deploy 
 
-Click here to your portfolio template now:
+Deploy your own version of this portfolio:
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Framxcodes%2Fsleek-portfolio&env=TELEGRAM_BOT_TOKEN,TELEGRAM_CHAT_ID,GEMINI_API_KEY,NEXT_PUBLIC_URL)
 
@@ -15,12 +19,16 @@ Click here to your portfolio template now:
 - **Next.js 15** with App Router
 - **Tailwind CSS** for styling
 - **Shadcn UI** components
-- **Dark/Light** mode
-- **Responsive** design
-- **MDX** for blog posts and project details
+- **Dark/Light** mode toggle
+- **Responsive** design optimized for all devices
+- **MDX** for project details and documentation
 - **Contact Form** with Telegram integration
-- **SEO** optimized
-- **TypeScript** for type safety
+- **SEO** optimized with proper metadata
+- **TypeScript** for type safety and better development experience
+- **Project Showcase** with detailed case studies
+- **Work Experience** timeline
+- **Resume** section with downloadable PDF
+- **Skills** showcase with technology icons
 
 ## Prerequisites
 
@@ -56,7 +64,7 @@ NEXT_PUBLIC_URL="http://localhost:3000"
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/ramxcodes/sleek-portfolio.git
+   git clone https://github.com/ShubhamPP04/sleek-portfolio.git
    cd sleek-portfolio
    ```
 
@@ -70,7 +78,9 @@ NEXT_PUBLIC_URL="http://localhost:3000"
    npm install
    ```
 
-3. Run the development server:
+3. Set up environment variables (see Environment Variables section below)
+
+4. Run the development server:
 
    ```bash
    # Using bun
@@ -80,7 +90,7 @@ NEXT_PUBLIC_URL="http://localhost:3000"
    npm run dev
    ```
 
-4. Open [http://localhost:3000](http://localhost:3000) in your browser
+5. Open [http://localhost:3000](http://localhost:3000) in your browser
 
 ## Configuration
 
@@ -115,17 +125,37 @@ export const NewTechIcon = () => {
 
 ## Adding Content
 
-### Blog Posts
-
-1. Create a new MDX file in `src/data/blog/`
-2. Add metadata and content following existing post structure
-3. Add blog thumbnail in `public/blog/`
-
 ### Projects
 
 1. Create a new MDX file in `src/data/projects/`
 2. Add metadata and content following existing project structure
 3. Add project thumbnail in `public/project/`
+4. Update the projects configuration in `src/config/Projects.tsx`
+
+### Work Experience
+
+1. Update the experience data in `src/config/Experience.tsx`
+2. Add company logos to `public/company/`
+
+### Personal Information
+
+1. Update personal details in `src/config/About.tsx`
+2. Modify hero section in `src/config/Hero.tsx`
+3. Update contact information in `src/config/Contact.tsx`
+4. Customize metadata in `src/config/Meta.tsx`
+
+## Contact
+
+- **Email**: shubhampp8001@gmail.com
+- **GitHub**: [@ShubhamPP04](https://github.com/ShubhamPP04)
+- **LinkedIn**: [shubham-kumar-48420b249](https://linkedin.com/in/shubham-kumar-48420b249)
+- **Twitter**: [@ShubhamPP04](https://twitter.com/ShubhamPP04)
+
+## Acknowledgments
+
+- Original template by [@ramxcodes](https://github.com/ramxcodes)
+- Icons from [Devicon](https://devicon.dev/)
+- UI components from [Shadcn UI](https://ui.shadcn.com/)
 
 ## License
 
