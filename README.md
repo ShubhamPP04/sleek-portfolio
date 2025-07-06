@@ -92,6 +92,67 @@ NEXT_PUBLIC_URL="http://localhost:3000"
 
 5. Open [http://localhost:3000](http://localhost:3000) in your browser
 
+## Troubleshooting
+
+### Common Deployment Issues
+
+#### ERESOLVE Dependency Resolution Error (Vercel/Production)
+
+If you encounter dependency resolution errors during deployment, particularly with `next-view-transitions` and React 19, try these solutions:
+
+**Solution 1: Use Legacy Peer Deps (Recommended)**
+```bash
+# Create .npmrc file in root directory
+echo "legacy-peer-deps=true" > .npmrc
+```
+
+**Solution 2: Force Resolution (package.json)**
+Add this to your `package.json`:
+```json
+{
+  "overrides": {
+    "next-view-transitions": {
+      "react": "^19.0.0",
+      "react-dom": "^19.0.0"
+    }
+  }
+}
+```
+
+**Solution 3: Use npm with --force flag**
+```bash
+npm install --force
+```
+
+**Solution 4: Remove next-view-transitions (if not needed)**
+```bash
+npm uninstall next-view-transitions
+```
+
+#### Vercel Build Settings
+
+If deploying to Vercel, set these environment variables in your Vercel dashboard:
+- `NPM_FLAGS="--legacy-peer-deps"`
+- Or add to your `vercel.json`:
+```json
+{
+  "buildCommand": "npm install --legacy-peer-deps && npm run build"
+}
+```
+
+#### Node.js Version Issues
+
+Ensure you're using the correct Node.js version:
+- Add `.nvmrc` file with `18` or `20`
+- Or specify in `package.json`:
+```json
+{
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
+```
+
 ## Configuration
 
 The project uses configuration files in the `src/config` directory for easy customization:
