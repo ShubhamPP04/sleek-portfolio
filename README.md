@@ -153,6 +153,71 @@ Ensure you're using the correct Node.js version:
 }
 ```
 
+### Git Sync Issues
+
+#### Branch Divergence
+If you see "Your branch and 'origin/main' have diverged", try these solutions:
+
+**Solution 1: Pull with rebase (Recommended)**
+```bash
+git pull --rebase origin main
+```
+
+**Solution 2: Force push (if you want to keep local changes)**
+```bash
+git push --force-with-lease origin main
+```
+
+**Solution 3: Reset to remote (if you want remote changes)**
+```bash
+git fetch origin
+git reset --hard origin/main
+```
+
+**Solution 4: Merge approach**
+```bash
+git pull origin main
+# Resolve any conflicts, then:
+git push origin main
+```
+
+#### Common Git Sync Problems
+
+**Problem: "Updates were rejected because the remote contains work"**
+```bash
+# Check what's different
+git fetch origin
+git log --oneline HEAD..origin/main
+git log --oneline origin/main..HEAD
+
+# Then choose merge or rebase
+git pull --rebase origin main
+```
+
+**Problem: "Authentication failed"**
+```bash
+# For GitHub, use personal access token
+git config --global credential.helper store
+# Or use SSH keys (recommended)
+ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+```
+
+**Problem: "Working tree is dirty"**
+```bash
+# Stash changes temporarily
+git stash
+git pull origin main
+git stash pop
+```
+
+#### GitHub Desktop/VS Code Sync Issues
+
+If using GitHub Desktop or VS Code:
+1. Check if you're signed in to the correct account
+2. Try refreshing the repository
+3. Use terminal commands as fallback
+4. Check repository permissions
+
 ## Configuration
 
 The project uses configuration files in the `src/config` directory for easy customization:
