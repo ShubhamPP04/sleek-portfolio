@@ -8,12 +8,13 @@ import ThemeSwitch from './ThemeSwitch';
 
 export default function Navbar() {
   return (
-    <Container className="sticky top-0 z-50 rounded-md py-4 backdrop-blur-sm">
-      <div className="flex items-center justify-between px-6">
-        <div className="flex items-baseline gap-4">
-          <Link href="/">
+    <Container className="sticky top-4 z-50">
+      <div className="mx-auto max-w-fit">
+        <div className="flex items-center gap-8 px-8 py-4 rounded-full backdrop-blur-3xl bg-white/40 dark:bg-white/10 border border-white/50 dark:border-white/20 shadow-[0_8px_32px_0_rgba(31,38,135,0.37)] dark:shadow-[0_8px_32px_0_rgba(255,255,255,0.1)]">
+          {/* Logo */}
+          <Link href="/" className="group">
             <Image
-              className="h-12 w-12 rounded-md border border-gray-200 transition-all duration-300 ease-in-out hover:scale-90"
+              className="h-8 w-8 rounded-lg transition-all duration-300 group-hover:scale-110"
               src={navbarConfig.logo.src}
               alt={navbarConfig.logo.alt}
               width={navbarConfig.logo.width}
@@ -21,19 +22,21 @@ export default function Navbar() {
               style={{ backgroundColor: '#297be6' }}
             />
           </Link>
-          <div className="flex items-center justify-center gap-4">
+          
+          {/* Navigation Links */}
+          <nav className="hidden md:flex items-center gap-6">
             {navbarConfig.navItems.map((item) => (
               <Link
-                className="transition-all duration-300 ease-in-out hover:underline hover:decoration-2 hover:underline-offset-4"
                 key={item.label}
                 href={item.href}
+                className="text-sm font-medium text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white transition-colors duration-200"
               >
                 {item.label}
               </Link>
             ))}
-          </div>
-        </div>
-        <div className="flex items-center gap-4">
+          </nav>
+
+          {/* Theme Switch */}
           <ThemeSwitch />
         </div>
       </div>
