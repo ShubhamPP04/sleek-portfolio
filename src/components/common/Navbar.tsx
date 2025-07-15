@@ -10,11 +10,11 @@ export default function Navbar() {
   return (
     <Container className="sticky top-4 z-50">
       <div className="mx-auto max-w-fit">
-        <div className="flex items-center gap-8 px-8 py-4 rounded-full backdrop-blur-3xl bg-white/40 dark:bg-white/10 border border-white/50 dark:border-white/20 shadow-[0_8px_32px_0_rgba(31,38,135,0.37)] dark:shadow-[0_8px_32px_0_rgba(255,255,255,0.1)]">
+        <div className="flex items-center gap-4 sm:gap-6 md:gap-8 px-4 sm:px-6 md:px-8 py-3 md:py-4 rounded-full backdrop-blur-3xl bg-white/40 dark:bg-white/10 border border-white/50 dark:border-white/20 shadow-[0_8px_32px_0_rgba(31,38,135,0.37)] dark:shadow-[0_8px_32px_0_rgba(255,255,255,0.1)]">
           {/* Logo */}
           <Link href="/" className="group">
             <Image
-              className="h-8 w-8 rounded-lg transition-all duration-300 group-hover:scale-110"
+              className="h-7 w-7 md:h-8 md:w-8 rounded-lg transition-all duration-300 group-hover:scale-110"
               src={navbarConfig.logo.src}
               alt={navbarConfig.logo.alt}
               width={navbarConfig.logo.width}
@@ -23,13 +23,13 @@ export default function Navbar() {
             />
           </Link>
           
-          {/* Navigation Links */}
-          <nav className="hidden md:flex items-center gap-6">
+          {/* Navigation Links - Visible on all screen sizes */}
+          <nav className="flex items-center gap-3 sm:gap-4 md:gap-6">
             {navbarConfig.navItems.map((item) => (
               <Link
                 key={item.label}
                 href={item.href}
-                className="text-sm font-medium text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white transition-colors duration-200"
+                className="text-xs sm:text-sm font-medium text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white transition-colors duration-200"
               >
                 {item.label}
               </Link>
