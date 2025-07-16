@@ -10,7 +10,7 @@ export default function Navbar() {
   return (
     <Container className="sticky top-4 z-50">
       <div className="mx-auto max-w-fit">
-        <div className="flex items-center gap-4 sm:gap-6 md:gap-8 px-4 sm:px-6 md:px-8 py-3 md:py-4 rounded-full backdrop-blur-3xl bg-white/40 dark:bg-white/10 border border-white/50 dark:border-white/20 shadow-[0_8px_32px_0_rgba(31,38,135,0.37)] dark:shadow-[0_8px_32px_0_rgba(255,255,255,0.1)]">
+        <div className="flex items-center gap-4 sm:gap-6 md:gap-8 px-4 sm:px-6 md:px-8 py-3 md:py-4 rounded-full backdrop-blur-xl bg-white/90 dark:bg-gray-900/90 border border-white/50 dark:border-gray-600/50 shadow-xl shadow-black/10 dark:shadow-white/10">
           {/* Logo */}
           <Link href="/" className="group">
             <Image
