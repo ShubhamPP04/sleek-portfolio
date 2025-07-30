@@ -1,5 +1,6 @@
 import ChatBubble from '@/components/common/ChatBubble';
 import Footer from '@/components/common/Footer';
+import MusicToggle from '@/components/common/MusicToggle';
 import Navbar from '@/components/common/Navbar';
 import { Quote } from '@/components/common/Quote';
 import { generateMetadata as getMetadata } from '@/config/Meta';
@@ -20,6 +21,7 @@ export default function RootLayout({
       <html lang="en">
         <body className={`font-hanken-grotesk antialiased`}>
           <ReactLenis root>
+            <MusicToggle />
             <Navbar />
             {children}
             <Quote />
