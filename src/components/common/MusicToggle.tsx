@@ -1,8 +1,7 @@
 'use client';
 
 import React, { useState, useRef, useEffect } from 'react';
-import MusicOn from '../svgs/MusicOn';
-import MusicOff from '../svgs/MusicOff';
+import ModernMusicIcon from '../svgs/ModernMusicIcon';
 
 export default function MusicToggle() {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -94,37 +93,37 @@ export default function MusicToggle() {
   };
 
   return (
-    <div className="fixed top-4 right-4 z-50">
+    <div className="fixed top-4 right-4 z-[60]" style={{ top: 'max(1rem, env(safe-area-inset-top) + 1rem)', right: 'max(1rem, env(safe-area-inset-right) + 1rem)' }}>
       <button
         onClick={toggleMusic}
+        onTouchStart={(e) => e.preventDefault()}
         disabled={isLoading}
         className={`
           group relative flex items-center justify-center 
-          w-12 h-12 rounded-full 
-          backdrop-blur-xl bg-white/90 dark:bg-gray-900/90 
-          border border-white/20 dark:border-gray-700/50
-          shadow-lg hover:shadow-xl 
-          transition-all duration-300 ease-in-out
-          hover:scale-105 active:scale-95
+          w-16 h-16 sm:w-12 sm:h-12 
+          min-w-[64px] min-h-[64px] sm:min-w-[48px] sm:min-h-[48px]
+          rounded-full 
+          backdrop-blur-xl bg-white/95 dark:bg-gray-900/95 
+          border-2 border-white/30 dark:border-gray-700/60
+          transition-all duration-200 ease-in-out
+          active:scale-90 hover:scale-105
           text-gray-700 dark:text-gray-300 
           hover:text-gray-900 dark:hover:text-white
+          touch-manipulation 
+          cursor-pointer
+          focus:outline-none focus:ring-2 focus:ring-blue-500/50
           ${isLoading ? 'animate-pulse' : ''}
-          ${!isPlaying && !isLoading ? 'ring-2 ring-blue-500/50 animate-pulse' : ''}
         `}
         aria-label={isPlaying ? 'Pause background music' : 'Play background music'}
         title={isLoading ? 'Loading music...' : (isPlaying ? 'Pause Music' : 'Play Music')}
       >
         {isLoading ? (
           <div className="w-5 h-5 border-2 border-current border-t-transparent rounded-full animate-spin" />
-        ) : isPlaying ? (
-          <MusicOn className="w-6 h-6 transition-transform group-hover:scale-110" />
         ) : (
-          <MusicOff className="w-6 h-6 transition-transform group-hover:scale-110" />
-        )}
-        
-        {/* Subtle pulsing ring when music is playing */}
-        {isPlaying && (
-          <div className="absolute inset-0 rounded-full ring-2 ring-green-500/30 animate-ping" />
+          <ModernMusicIcon 
+            className="w-8 h-8 transition-all duration-300 group-hover:scale-110" 
+            isPlaying={isPlaying}
+          />
         )}
       </button>
     </div>
