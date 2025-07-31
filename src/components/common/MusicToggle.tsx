@@ -19,8 +19,7 @@ export default function MusicToggle() {
       // Handle audio events
       const handleCanPlay = () => {
         setIsLoading(false);
-        // Try to auto-play when audio is ready
-        attemptAutoPlay();
+        // Music is ready but won't auto-play
       };
 
       const handlePlay = () => setIsPlaying(true);
@@ -29,41 +28,6 @@ export default function MusicToggle() {
       audioRef.current.addEventListener('canplaythrough', handleCanPlay);
       audioRef.current.addEventListener('play', handlePlay);
       audioRef.current.addEventListener('pause', handlePause);
-
-      // Auto-play function
-      const attemptAutoPlay = async () => {
-        if (!audioRef.current) return;
-
-        try {
-          // Try direct autoplay
-          await audioRef.current.play();
-          console.log('Music started automatically');
-        } catch {
-          console.log('Auto-play blocked by browser - user interaction required');
-          
-          // Set up one-time user interaction listener
-          const startOnFirstInteraction = async () => {
-            try {
-              if (audioRef.current && audioRef.current.paused) {
-                await audioRef.current.play();
-                console.log('Music started on user interaction');
-              }
-            } catch {
-              console.log('Failed to start music even after interaction');
-            }
-            
-            // Remove listeners after first attempt
-            document.removeEventListener('click', startOnFirstInteraction);
-            document.removeEventListener('keydown', startOnFirstInteraction);
-            document.removeEventListener('touchstart', startOnFirstInteraction);
-          };
-
-          // Listen for any user interaction
-          document.addEventListener('click', startOnFirstInteraction, { once: true });
-          document.addEventListener('keydown', startOnFirstInteraction, { once: true });
-          document.addEventListener('touchstart', startOnFirstInteraction, { once: true });
-        }
-      };
 
       // Cleanup function
       return () => {
