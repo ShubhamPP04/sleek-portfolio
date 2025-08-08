@@ -57,15 +57,20 @@ export default function MusicToggle() {
   };
 
   return (
-    <div className="fixed top-4 right-4 z-[60]" style={{ top: 'max(1rem, env(safe-area-inset-top) + 1rem)', right: 'max(1rem, env(safe-area-inset-right) + 1rem)' }}>
+    <div
+      className="group fixed top-4 right-4 z-[60] w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16"
+      style={{
+        top: 'max(1rem, env(safe-area-inset-top) + 1rem)',
+        right: 'max(1rem, env(safe-area-inset-right) + 1rem)',
+      }}
+    >
       <button
         onClick={toggleMusic}
         onTouchStart={(e) => e.preventDefault()}
         disabled={isLoading}
         className={`
           group relative flex items-center justify-center 
-          w-16 h-16 sm:w-12 sm:h-12 
-          min-w-[64px] min-h-[64px] sm:min-w-[48px] sm:min-h-[48px]
+          w-full h-full
           rounded-full 
           backdrop-blur-xl bg-white/95 dark:bg-gray-900/95 
           border-2 border-white/30 dark:border-gray-700/60
@@ -76,6 +81,10 @@ export default function MusicToggle() {
           touch-manipulation 
           cursor-pointer
           focus:outline-none focus:ring-2 focus:ring-blue-500/50
+          opacity-0 translate-x-2 scale-95 pointer-events-none
+          group-hover:opacity-100 group-hover:translate-x-0 group-hover:scale-100 group-hover:pointer-events-auto
+          group-active:opacity-100 group-active:translate-x-0 group-active:scale-100 group-active:pointer-events-auto
+          focus-visible:opacity-100 focus-visible:translate-x-0 focus-visible:scale-100 focus-visible:pointer-events-auto
           ${isLoading ? 'animate-pulse' : ''}
         `}
         aria-label={isPlaying ? 'Pause background music' : 'Play background music'}
