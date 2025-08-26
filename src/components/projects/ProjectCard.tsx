@@ -146,7 +146,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
             className={`flex items-center gap-1 rounded-md px-2 py-1 text-xs ${
               project.isWorking
                 ? 'border-green-300 bg-green-500/10'
-                : 'border-blue-300 bg-blue-500/10'
+                : 'border-[#0077b6] bg-[#0077b6]/10'
             }`}
           >
             {project.isWorking ? (
@@ -156,7 +156,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
               </>
             ) : (
               <>
-                <CheckCircle className="size-3 text-blue-500" />
+                <CheckCircle className="size-3 text-[#0077b6]" />
                 Completed
               </>
             )}

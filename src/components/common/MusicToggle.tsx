@@ -80,7 +80,7 @@ export default function MusicToggle() {
           hover:text-gray-900 dark:hover:text-white
           touch-manipulation 
           cursor-pointer
-          focus:outline-none focus:ring-2 focus:ring-blue-500/50
+          focus:outline-none focus:ring-2 focus:ring-[#0077b6]/50
           opacity-0 translate-x-2 scale-95 pointer-events-none
           group-hover:opacity-100 group-hover:translate-x-0 group-hover:scale-100 group-hover:pointer-events-auto
           group-active:opacity-100 group-active:translate-x-0 group-active:scale-100 group-active:pointer-events-auto

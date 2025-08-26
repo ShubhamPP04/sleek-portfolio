@@ -57,7 +57,7 @@ export default function Hero() {
         width={100}
         height={100}
         className="size-24 rounded-full"
-        style={{ backgroundColor: '#297be6' }}
+        style={{ backgroundColor: '#0077b6' }}
       />
 
       {/* Text Area */}

@@ -19,7 +19,7 @@ export default function Navbar() {
               alt={navbarConfig.logo.alt}
               width={navbarConfig.logo.width}
               height={navbarConfig.logo.height}
-              style={{ backgroundColor: '#297be6' }}
+              style={{ backgroundColor: '#0077b6' }}
             />
           </Link>
           

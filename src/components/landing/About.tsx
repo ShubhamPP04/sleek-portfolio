@@ -18,7 +18,7 @@ export default function About() {
           width={100}
           height={100}
           className="border-secondary size-60 rounded-md border-2"
-          style={{ backgroundColor: '#297be6' }}
+          style={{ backgroundColor: '#0077b6' }}
         />
         <div className="mt-4">
           <h3 className="text-2xl font-bold">{about.name}</h3>
