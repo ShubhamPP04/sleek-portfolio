@@ -96,6 +96,23 @@ export const pageMetadata: Record<string, PageMeta> = {
     twitterCard: 'summary_large_image',
   },
 
+  // Books page
+  '/books': {
+    title: 'Books - My Reading Collection',
+    description:
+      'A curated list of books I\'ve enjoyed reading, featuring mystery, thriller, and contemporary fiction.',
+    keywords: [
+      'books',
+      'reading',
+      'mystery',
+      'thriller',
+      'fiction',
+      'recommendations',
+    ],
+    ogImage: '/meta/books.png',
+    twitterCard: 'summary_large_image',
+  },
+
   // Resume page
   '/resume': {
     title: 'Resume - Professional CV',
