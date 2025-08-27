@@ -1,28 +1,24 @@
+'use client';
+
 import Container from '@/components/common/Container';
 import { BookList } from '@/components/books/BookList';
+import { BookDetail } from '@/components/books/BookDetail';
 import { Separator } from '@/components/ui/separator';
 import { books } from '@/config/Books';
-import { generateMetadata as getMetadata } from '@/config/Meta';
-import { Metadata } from 'next';
-
-export const metadata: Metadata = {
-  ...getMetadata('/books'),
-  title: 'Books | Shubham Kumar',
-  description: 'A collection of my favorite books and recommendations.',
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1
-    }
-  }
-};
+import { type Book } from '@/types/book';
+import { useState } from 'react';
 
 export default function BooksPage() {
+  const [selectedBook, setSelectedBook] = useState<Book | null>(null);
+
+  const handleBookClick = (book: Book) => {
+    setSelectedBook(book);
+  };
+
+  const handleBackToGrid = () => {
+    setSelectedBook(null);
+  };
+
   return (
     <Container className="py-16">
       <div className="space-y-8">
@@ -42,17 +38,29 @@ export default function BooksPage() {
         <div className="space-y-6">
           <div className="flex items-center justify-between">
             <h2 className="text-2xl font-semibold">
-              My Book Collection
-              {books.length > 0 && (
+              {selectedBook ? selectedBook.title : 'My Book Collection'}
+              {books.length > 0 && !selectedBook && (
                 <span className="ml-2 text-sm font-normal text-muted-foreground">
                   ({books.length}{' '}
                   {books.length === 1 ? 'book' : 'books'})
                 </span>
               )}
             </h2>
+            {selectedBook && (
+              <button
+                onClick={handleBackToGrid}
+                className="text-sm text-muted-foreground hover:text-foreground transition-colors duration-200"
+              >
+                ← Back to all books
+              </button>
+            )}
           </div>
 
-          <BookList books={books} />
+          {selectedBook ? (
+            <BookDetail book={selectedBook} />
+          ) : (
+            <BookList books={books} onBookClick={handleBookClick} />
+          )}
         </div>
       </div>
     </Container>

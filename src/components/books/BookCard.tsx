@@ -11,11 +11,19 @@ import React from 'react';
 
 interface BookCardProps {
   book: Book;
+  onClick?: (book: Book) => void;
 }
 
-export function BookCard({ book }: BookCardProps) {
+export function BookCard({ book, onClick }: BookCardProps) {
+  const handleClick = () => {
+    onClick?.(book);
+  };
+
   return (
-    <Card className="group h-full w-full overflow-hidden transition-all p-0 border-gray-100 dark:border-gray-800 shadow-none rounded-lg bg-white dark:bg-gray-900 hover:shadow-lg hover:shadow-black/10 dark:hover:shadow-white/10">
+    <Card
+      className="group h-full w-full overflow-hidden transition-all p-0 border-gray-100 dark:border-gray-800 shadow-none rounded-lg bg-white dark:bg-gray-900 hover:shadow-lg hover:shadow-black/10 dark:hover:shadow-white/10 cursor-pointer"
+      onClick={handleClick}
+    >
       <CardHeader className="p-0">
         <div className="group relative aspect-[3/4] overflow-hidden rounded-t-lg bg-gray-100 dark:bg-gray-800" style={{ perspective: '1000px' }}>
           <div
